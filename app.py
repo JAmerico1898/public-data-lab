@@ -137,102 +137,9 @@ else:
     )
 
     # Module cards — Row 1 (3 cards)
-    st.markdown(
-        f"<p style='text-align:center; color:#64748B; margin-bottom:24px;'>"
-        f"{t('select_module', lang)}</p>",
-        unsafe_allow_html=True,
-    )
-
     col1, col2, col3 = st.columns(3, gap="medium")
 
     with col1:
-        st.markdown(
-            render_module_card(
-                "⚡",
-                t("spi_title", lang).replace("⚡ ", ""),
-                t("spi_desc", lang),
-                "cyan",
-                t("active", lang),
-                active=True,
-            ),
-            unsafe_allow_html=True,
-        )
-        if st.button(
-            t("spi_title", lang),
-            key="btn_spi",
-            use_container_width=True,
-            type="primary",
-        ):
-            go_to("spi")
-            st.rerun()
-
-    with col2:
-        st.markdown(
-            render_module_card(
-                "📈",
-                t("sgs_title", lang).replace("📈 ", ""),
-                t("sgs_desc", lang),
-                "emerald",
-                t("active", lang),
-                active=True,
-            ),
-            unsafe_allow_html=True,
-        )
-        if st.button(
-            t("sgs_title", lang),
-            key="btn_sgs",
-            use_container_width=True,
-            type="primary",
-        ):
-            go_to("sgs")
-            st.rerun()
-
-    with col3:
-        st.markdown(
-            render_module_card(
-                "🔮",
-                t("exp_title", lang).replace("🔮 ", ""),
-                t("exp_desc", lang),
-                "amber",
-                t("active", lang),
-                active=True,
-            ),
-            unsafe_allow_html=True,
-        )
-        if st.button(
-            t("exp_title", lang),
-            key="btn_exp",
-            use_container_width=True,
-            type="primary",
-        ):
-            go_to("exp")
-            st.rerun()
-
-    # Module cards — Row 2 (3 cards)
-    col4, col5, col6 = st.columns(3, gap="medium")
-
-    with col4:
-        st.markdown(
-            render_module_card(
-                "🏦",
-                t("ifdata_title", lang).replace("🏦 ", ""),
-                t("ifdata_desc", lang),
-                "rose",
-                t("active", lang),
-                active=True,
-            ),
-            unsafe_allow_html=True,
-        )
-        if st.button(
-            t("ifdata_title", lang),
-            key="btn_ifdata",
-            use_container_width=True,
-            type="primary",
-        ):
-            go_to("ifdata")
-            st.rerun()
-
-    with col5:
         st.markdown(
             render_module_card(
                 "💹",
@@ -253,15 +160,60 @@ else:
             go_to("taxas")
             st.rerun()
 
-    with col6:
+    with col2:
+        st.markdown(
+            render_module_card(
+                "🏦",
+                t("ifdata_title", lang).replace("🏦 ", ""),
+                t("ifdata_desc", lang),
+                "rose",
+                t("active", lang),
+                active=True,
+            ),
+            unsafe_allow_html=True,
+        )
+        if st.button(
+            t("ifdata_title", lang),
+            key="btn_ifdata",
+            use_container_width=True,
+            type="primary",
+        ):
+            go_to("ifdata")
+            st.rerun()
+
+    with col3:
+        st.markdown(
+            render_module_card(
+                "📈",
+                t("sgs_title", lang).replace("📈 ", ""),
+                t("sgs_desc", lang),
+                "emerald",
+                t("active", lang),
+                active=True,
+            ),
+            unsafe_allow_html=True,
+        )
+        if st.button(
+            t("sgs_title", lang),
+            key="btn_sgs",
+            use_container_width=True,
+            type="primary",
+        ):
+            go_to("sgs")
+            st.rerun()
+
+    # Module cards — Row 2 (3 cards)
+    col4, col5, col6 = st.columns(3, gap="medium")
+
+    with col4:
         st.markdown(
             render_module_card(
                 "📍",
                 "Inadimplência" if lang == "pt" else "NPL",
                 (
-                    "Inadimplência de operações de crédito por região e estado — modalidades PF e PJ."
+                    "Inadimplência por região e estado — PF e PJ."
                     if lang == "pt"
-                    else "Non-performing loans by region and state. Households and Enterprises"
+                    else "Non-performing loans by region and state."
                 ),
                 "cyan",
                 t("active", lang),
@@ -276,6 +228,48 @@ else:
             type="primary",
         ):
             go_to("inad")
+            st.rerun()
+
+    with col5:
+        st.markdown(
+            render_module_card(
+                "⚡",
+                t("spi_title", lang).replace("⚡ ", ""),
+                t("spi_desc", lang),
+                "cyan",
+                t("active", lang),
+                active=True,
+            ),
+            unsafe_allow_html=True,
+        )
+        if st.button(
+            t("spi_title", lang),
+            key="btn_spi",
+            use_container_width=True,
+            type="primary",
+        ):
+            go_to("spi")
+            st.rerun()
+
+    with col6:
+        st.markdown(
+            render_module_card(
+                "🔮",
+                t("exp_title", lang).replace("🔮 ", ""),
+                t("exp_desc", lang),
+                "amber",
+                t("active", lang),
+                active=True,
+            ),
+            unsafe_allow_html=True,
+        )
+        if st.button(
+            t("exp_title", lang),
+            key="btn_exp",
+            use_container_width=True,
+            type="primary",
+        ):
+            go_to("exp")
             st.rerun()
 
     # Feedback button — centered, smaller
